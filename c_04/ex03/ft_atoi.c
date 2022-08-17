@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/17 09:38:41 by avedrenn          #+#    #+#             */
+/*   Updated: 2022/08/17 09:42:07 by avedrenn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 
-int	is_space(char	c)
+int	is_space(char c)
 {
 	if (c == ' ' || (c >= 9 && c <= 13))
 		return (1);
 	return (0);
 }
 
-int	is_numeric(char	c)
+int	is_numeric(char c)
 {
 	if (c >= 48 && c <= 57)
 		return (1);
@@ -33,9 +45,9 @@ int	str_to_int(char *str)
 int	ft_atoi(char *str)
 {
 	char	nbr[100];
-	int	minus;
-	int	i;
-	int	j;
+	int		minus;
+	int		i;
+	int		j;
 
 	i = 0;
 	minus = 0;
@@ -52,16 +64,14 @@ int	ft_atoi(char *str)
 		nbr[j] = str[i + j];
 		j++;
 	}
-	printf("nbr en  char : %s\n", nbr);
 	nbr[j] = 0;
 	if (minus % 2 == 0)
 		return (str_to_int(nbr));
 	else
 		return (str_to_int(nbr) * -1);
-		
 }
 
-int	main()
-{
-	printf("%d\n", ft_atoi(" ---+--+1234ab567"));
-}
+//int	main()
+//{
+//	printf("%d\n", ft_atoi(" ---+--+1234ab567"));
+//}
