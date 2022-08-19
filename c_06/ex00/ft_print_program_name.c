@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 18:19:01 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/19 10:31:40 by avedrenn         ###   ########.fr       */
+/*   Created: 2022/08/19 08:16:21 by avedrenn          #+#    #+#             */
+/*   Updated: 2022/08/19 08:42:38 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
-int	ft_sqrt(int nb)
+#include <unistd.h>
+
+int	main(int argc, char *argv[])
 {
 	int	i;
-	
-	if (nb == 1)
-		return (1);
-	i = 2;
-	while (i < nb)
+
+	argc --;
+	i = 0;
+	while (argv[0][i])
 	{
-		if (i * i == nb)
-			return (i);
-		else
-			i ++;
+		write(1, &argv[0][i], 1);
+		i++;
 	}
 	return (0);
 }
