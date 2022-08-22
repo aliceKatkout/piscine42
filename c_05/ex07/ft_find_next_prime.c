@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 18:37:22 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/22 10:48:51 by avedrenn         ###   ########.fr       */
+/*   Created: 2022/08/22 10:50:09 by avedrenn          #+#    #+#             */
+/*   Updated: 2022/08/22 11:15:47 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,15 @@ int	ft_is_prime(int nb)
 		i++;
 	}
 	return (1);
+}
+
+int	ft_find_next_prime(int nb)
+{
+	if (nb <= 2)
+		return (2);
+	if (ft_is_prime(nb))
+		return (nb);
+	while (!ft_is_prime(nb))
+		nb ++;
+	return (nb);
 }
