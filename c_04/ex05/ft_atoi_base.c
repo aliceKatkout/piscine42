@@ -6,7 +6,7 @@
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 10:22:51 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/18 19:53:33 by avedrenn         ###   ########.fr       */
+/*   Updated: 2022/08/22 18:35:49 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include<stdio.h>
@@ -61,7 +61,7 @@ int	check_base(char *base)
 	i = 0;
 	while (i < b)
 	{
-		if (base[i] == '+' || base[i] == '-')
+		if (base[i] == '+' || base[i] == '-' || is_space(base[i]))
 			return (0);
 		j = 1;
 		while (j + i <= b)

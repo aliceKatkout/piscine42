@@ -6,7 +6,7 @@
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 09:38:41 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/18 19:00:10 by avedrenn         ###   ########.fr       */
+/*   Updated: 2022/08/22 16:08:27 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,3 @@ int	ft_atoi(char *str)
 	}	
 	return (res * minus);
 }
-
-//int	main(int argc, char *argv[])
-//{
-//	if (argc > 0)
-//		printf("%d\n", ft_atoi(argv[1]));
-//	return (0);
-//}

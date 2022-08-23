@@ -6,7 +6,7 @@
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 09:35:07 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/17 09:36:00 by avedrenn         ###   ########.fr       */
+/*   Updated: 2022/08/19 08:36:34 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	ft_putnbr(int nb)
 	}
 }
 
-/*int	main(void)
-{
-	ft_putnbr(2344557);
-	write(1, "\n", 1);
-	ft_putnbr(-237);
-	write(1, "\n", 1);
-	ft_putnbr(42);
-}*/
+//int	main(void)
+//{
+//	ft_putnbr(2344557);
+//	write(1, "\n", 1);
+//	ft_putnbr(-2);
+//	write(1, "\n", 1);
+//	ft_putnbr(42);
+//}

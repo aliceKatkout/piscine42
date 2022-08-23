@@ -6,16 +6,11 @@
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:53:27 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/18 18:48:01 by avedrenn         ###   ########.fr       */
+/*   Updated: 2022/08/21 15:36:56 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
-
-void	put_char(char c)
-{
-	write(1, &c, 1);
-}
 
 int	ft_char_is_printable(char c)
 {
@@ -32,8 +27,8 @@ void	convert_to_hex(unsigned char c)
 
 	hex = "0123456789abcdef";
 	write(1, "\\", 1);
-	put_char(hex[c / 16]);
-	put_char(hex[c % 16]);
+	write(1, &hex[c / 16], 1);
+	write(1, &hex[c % 16], 1);
 }
 
 void	ft_putstr_non_printable(char *str)

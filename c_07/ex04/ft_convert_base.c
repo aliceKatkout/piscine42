@@ -1,26 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 10:13:45 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/23 09:59:33 by avedrenn         ###   ########.fr       */
+/*   Created: 2022/08/23 16:27:58 by avedrenn          #+#    #+#             */
+/*   Updated: 2022/08/23 18:22:49 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-#include <limits.h>
 
-void	put_digit(int i, char *base)
-{
-	write(1, base + i, 1);
-}
+#include <stdlib.h>
+#include <stdio.h>
 
 int	is_space(char c)
 {
 	if (c == ' ' || (c >= 9 && c <= 13))
 		return (1);
+	return (0);
+}
+
+int	in_base(char c, char	*base)
+{
+	int	i;
+
+	i = 0;
+	while (base[i])
+	{
+		if (c != base[i])
+			i++;
+		else
+			return (1);
+	}
+	return (0);
+}
+
+int	convert_to_dec(char c, char *base)
+{
+	int	i;
+
+	i = 0;
+	while (base[i])
+	{
+		if (c == base[i])
+			return (i);
+		i++;
+	}
 	return (0);
 }
 
@@ -41,7 +66,7 @@ int	check_base(char *base)
 		if (base[i] == '+' || base[i] == '-' || is_space(base[i]))
 			return (0);
 		j = 1;
-		while (j + i < b)
+		while (j + i <= b)
 		{
 			if (base[i] != base[j + i])
 				j++;
@@ -53,27 +78,20 @@ int	check_base(char *base)
 	return (b);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+char *ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int				size;
-	unsigned int	nbrl;
+	int 	sbt;
+	int	sbf;
+	int 	i;
+	int	minus;
 
-	size = check_base(base);
-	if (size == 0)
-		return ;
-	if (nbr >= 0 && nbr < size)
-		put_digit(nbr, base);
-	else if (nbr < 0)
-	{
-		write(1, "-", 1);
-		nbrl = nbr * -1;
-		if (nbr / size != 0)
-			ft_putnbr_base((nbrl / size), base);
-		put_digit((nbrl % size), base);
-	}
-	else if (nbr >= size)
-	{
-		ft_putnbr_base((nbr / size), base);
-		put_digit((nbr % size), base);
-	}
+	i = 0;
+	sbt = check_base(base_from);
+	sbf = check_base(base_to);
+	if (!sbt || !sbf)
+		return (0);
+	while (nbr[i] && is_space(str[i]))
+		i++;
+	while (nbr[i] && !in_base(str[i]) && (str[i] == '+' || str[i] == '-'))
+
 }
