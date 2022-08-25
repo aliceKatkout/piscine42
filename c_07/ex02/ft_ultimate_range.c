@@ -6,7 +6,7 @@
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:48:03 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/22 16:19:02 by avedrenn         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:33:45 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 		return (0);
 	size = max - min;
 	*range = (int *)malloc(sizeof(int) * size);
-	if (range == NULL)
+	if (!range)
 		return (-1);
 	i = 0;
 	while (i < size && min < max)

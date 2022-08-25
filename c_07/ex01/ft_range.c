@@ -6,7 +6,7 @@
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 12:18:27 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/19 13:02:54 by avedrenn         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:33:08 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int	*ft_range(int min, int max)
 	if (min >= max)
 		return (0);
 	size = max - min;
-	res = (int*)malloc(sizeof(int) * size);
+	res = (int *)malloc(sizeof(int) * size);
+	if (!res)
+		return (0);
 	i = min;
 	j = 0;
 	while (i < max)
@@ -35,6 +37,7 @@ int	*ft_range(int min, int max)
 	return (res);
 }
 
+/*
 int	main(void)
 {
 	int	*res;
@@ -45,3 +48,4 @@ int	main(void)
 	free(res);
 	return (0);
 }
+*/
