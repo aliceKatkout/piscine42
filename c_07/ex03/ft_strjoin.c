@@ -6,7 +6,7 @@
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:20:31 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/25 19:18:05 by avedrenn         ###   ########.fr       */
+/*   Updated: 2022/08/26 12:51:57 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,21 @@ int	count_letters(char **strs, int size)
 	return (c);
 }
 
-char	*ft_malloc(int size, char **strs, char *sep)
+int	ft_strcpy(char *dest, char *src)
 {
-	char	*res;
-	int		j;
+	int	size;
+	int	i;
 
-	j = count_letters(strs, size) + (ft_strlen(sep)) * (size - 1) + 1;
-	if (size == 0)
+	size = 0;
+	i = 0;
+	while (src[size] != '\0')
+		size++;
+	while (i < size && src[i] != '\0')
 	{
-		res = (char *)malloc(sizeof(char));
-		res[0] = 0;
+		dest[i] = src[i];
+		i++;
 	}
-	res = (char *)malloc(sizeof(char) * j);
-	if (!res)
-		return (0);
-	return (res);
+	return (i);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
@@ -68,35 +68,35 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	int		k;
 	char	*res;
 
-	res = ft_malloc(size, strs, sep);
+	j = count_letters(strs, size) + (ft_strlen(sep)) * (size - 1) + 1;
+	if (size == 0)
+		res = (char *)malloc(sizeof(char));
+	res = (char *)malloc(sizeof(char) * j);
 	if (!res)
 		return (0);
 	i = 0;
 	k = 0;
-	while (i < size && res[i])
+	while (k < size)
 	{
-		j = 0;
-		while (strs[i][j] != '\0')
-			res[k++] = strs[i][j++];
-		j = 0;
-		while (sep[j] && i < size - 1)
-			res[k++] = sep[j++];
-		i++;
+		i += ft_strcpy(&res[i], strs[k]);
+		if (k != (size - 1))
+			i += ft_strcpy(&res[i], sep);
+		k++;
 	}
-	res[k] = '\0';
+	res[i] = '\0';
 	return (res);
 }
 
-
+/*
 int	main()
 {
-	int	i = 3;
-	char sep[] = "lalala";
-	char *strs[] = {"mana", "gfg", "jhgg"};
+	int	i = 0;
+	char sep[] = ",";
+	char *strs[] = {"g", "o", "u"};
 	char * res;	
 	res = ft_strjoin(i, strs, sep);
 	printf("%s\n", res);
 	free(res);
 	return (0);
 }
-
+*/
