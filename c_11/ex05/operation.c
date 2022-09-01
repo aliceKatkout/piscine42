@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
+/*   operation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 18:06:16 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/24 16:02:30 by avedrenn         ###   ########.fr       */
+/*   Created: 2022/09/01 11:35:11 by avedrenn          #+#    #+#             */
+/*   Updated: 2022/09/01 11:45:28 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_fibonacci(int index)
+#include "do.h"
+
+int	add(int a, int b)
 {
-	if (index < 0)
-		return (-1);
-	if (index == 0)
-		return (0);
-	else if (index == 1)
-		return (1);
-	else
-		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
+	return (a + b);
+}
+
+int	minus(int a, int b)
+{
+	return (a - b);
+}
+
+int	divide(int a, int b)
+{
+	return (a / b);
+}
+
+int	multiply(int a, int b)
+{
+	return (a * b);
+}
+
+int	modulo(int a, int b)
+{
+	return (a % b);
 }

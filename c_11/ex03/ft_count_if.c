@@ -1,36 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 18:37:22 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/24 09:45:48 by avedrenn         ###   ########.fr       */
+/*   Created: 2022/09/01 09:57:50 by avedrenn          #+#    #+#             */
+/*   Updated: 2022/09/01 10:07:00 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
+int	ft_count_if(char **tab, int length, int ( *f)(char*))
 {
 	int	i;
+	int	count;
 
-	i = 2;
-	if (nb < 2)
-		return (0);
-	if (nb == 2)
-		return (1);
-	while (i <= nb / i)
+	i = 0;
+	count = 0;
+	while (i < length)
 	{
-		if (nb % i == 0)
-			return (0);
+		if ((*f)(tab[i]))
+			count ++;
 		i++;
 	}
-	return (1);
+	return (count);
 }
 
 /*
-int	main(void)
+#include <stdio.h>
+int ft(char *str)
 {
-	printf("%d\n", ft_is_prime(112));
+	int i =0;
+
+	while (str[i])
+	{
+		if (str[i] == 'b')
+			return (1);
+		i ++;
+	}
+	return (0);
+}
+int	main()
+{
+	char *tab[3] = {"nib","nbo","nanb"};
+	int (*pf)(char *);
+	int res;
+	pf = &ft;
+	res = ft_count_if(tab, 3, pf);
+	printf("%d,", res);
+
 }
 */

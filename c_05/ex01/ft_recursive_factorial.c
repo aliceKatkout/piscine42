@@ -6,11 +6,9 @@
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 17:09:55 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/18 17:34:07 by avedrenn         ###   ########.fr       */
+/*   Updated: 2022/08/24 09:43:38 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_recursive_factorial(int nb)
 {

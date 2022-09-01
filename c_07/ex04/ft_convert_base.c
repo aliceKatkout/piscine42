@@ -6,12 +6,12 @@
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 16:27:58 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/24 17:27:39 by avedrenn         ###   ########.fr       */
+/*   Updated: 2022/08/28 16:07:09 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 int		is_space(char c);
 int		in_base(char c, char *base);
@@ -30,7 +30,7 @@ int	ft_atoi_base(char *nbr, char *base, int sbf)
 	minus = 1;
 	while (nbr[i] && is_space(nbr[i]))
 		i++;
-	while (nbr[i] && !in_base(nbr[i], base) && (nbr[i] == '+' || nbr[i] == '-'))
+	while (nbr[i] && (nbr[i] == '+' || nbr[i] == '-'))
 	{
 		if (nbr[i] == '-')
 			minus *= -1;
@@ -42,26 +42,6 @@ int	ft_atoi_base(char *nbr, char *base, int sbf)
 		i++;
 	}
 	return (res * minus);
-}
-
-char	*ft_malloc(int n, int sbt)
-{
-	int		nb;
-	int		size_r;
-	char	*res;
-
-	size_r = 0;
-	nb = n;
-	size_r = 2;
-	while (nb / 10 != 0)
-	{
-		nb = nb / 10;
-		size_r++;
-	}
-	res = (char *)malloc(sizeof(char) * size_r * sbt);
-	if (res == 0)
-		return (res);
-	return (res);
 }
 
 char	*ft_itoa_base(long int n, char *base, char *res, int size)
@@ -101,17 +81,26 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	sbt = check_base(base_to);
 	sbf = check_base(base_from);
 	if (!sbt || !sbf)
-		return (0);
+		return (NULL);
 	n = ft_atoi_base(nbr, base_from, sbf);
-	res = ft_malloc(n, sbt);
+	res = (char *)malloc(sizeof(char) * 34);
 	if (!res)
-		return (0);
+		return (NULL);
 	if (n == 0)
 	{
 		res[0] = base_to[0];
 		res[1] = '\0';
+		return (res);
 	}
 	ft_itoa_base((long int)n, base_to, res, sbt);
 	ft_reverse(res);
 	return (res);
 }
+/*
+int	main(int argc, char **argv)
+{
+	(void)argc;
+	printf("rien : %s\n", ft_convert_base(argv[1], argv[2], argv[3]));
+
+}
+*/

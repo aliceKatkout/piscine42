@@ -6,7 +6,7 @@
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 18:01:36 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/29 14:04:36 by avedrenn         ###   ########.fr       */
+/*   Updated: 2022/08/30 15:52:06 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,25 +94,3 @@ char	**ft_split(char *str, char *charset)
 	res[j] = 0;
 	return (res);
 }
-
-/*
-int	main()
-{
-	char str[] = "..coucouc.dhuew.hcuweo....jdiweo....";
-	char charset[] = ".";
-	int i = 0;
-	char **sp =  ft_split(str, charset);
-	while (*(sp + i))
-	{
-		printf("%s\n",*(sp + i));
-		i ++;
-	}
-	i = 0;
-	while (sp[i])
-	{
-		free(sp[i]);
-		i++;
-	}
-	return(0);
-}
-*/

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 18:06:16 by avedrenn          #+#    #+#             */
-/*   Updated: 2022/08/24 16:02:30 by avedrenn         ###   ########.fr       */
+/*   Created: 2022/08/31 12:17:23 by avedrenn          #+#    #+#             */
+/*   Updated: 2022/09/01 09:57:01 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_fibonacci(int index)
+void	ft_foreach(int *tab, int length, void ( *f)(int))
 {
-	if (index < 0)
-		return (-1);
-	if (index == 0)
-		return (0);
-	else if (index == 1)
-		return (1);
-	else
-		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
+	int	i;
+
+	i = 0;
+	while (i < length)
+	{
+		(*f)(tab[i]);
+		i++;
+	}
 }
